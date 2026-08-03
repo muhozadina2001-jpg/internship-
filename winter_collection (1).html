@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winter Apparel | Home</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        nav {
+            background-color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0f172a;
+            letter-spacing: 1px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #0284c7;
+        }
+        header {
+            background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), 
+                        url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80&w=1600') no-repeat center center/cover;
+            height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        header p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #0284c7;
+            color: white;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .btn:hover {
+            background-color: #0369a1;
+            transform: translateY(-2px);
+        }
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+        .card img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+        .card-info {
+            padding: 25px;
+            text-align: center;
+        }
+        .card-info h3 {
+            font-size: 1.3rem;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+        .price {
+            color: #0284c7;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        #services {
+            background-color: white;
+            max-width: 100%;
+            padding: 80px 40px;
+        }
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .service-box {
+            text-align: center;
+            padding: 30px;
+            background: #f8fafc;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .service-box:hover {
+            transform: translateY(-5px);
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .service-box h3 {
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+        .service-box p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .about-text p {
+            color: #475569;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 60px 20px 20px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 40px;
+            margin-bottom: 20px;
+        }
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        .footer-section ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <nav id="home">
+        <div class="logo">WINTER CO.</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#about">About Us</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>The Winter Edit</h1>
+        <p>Discover premium outdoor comfort and premium fabrics. Crafted expertly to keep you cozy during freeze conditions.</p>
+        <a href="#collection" class="btn">Explore Collection</a>
+    </header>
+    <section id="collection">
+        <h2 class="section-title">The New Collection</h2>
+        <p class="section-subtitle">Designed for comfort, styled for the modern lifestyle.</p>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80" alt="Woman in yellow casual winter puffer jacket">
+                <div class="card-info">
+                    <h3>Streetwear Puffer Jacket</h3>
+                    <p class="price">$145.00</p>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1610384104075-e05c8cf20f5a?w=600&auto=format&fit=crop&q=80" alt="Man wearing heavy gray winter coat outdoors">
+                <div class="card-info">
+                    <h3>Premium Overcoat</h3>
+                    <p class="price">$189.00</p>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&auto=format&fit=crop&q=80" alt="Man wearing woolen winter knitted sweater">
+                <div class="card-info">
+                    <h3>Urban Knit Sweater</h3>
+                    <p class="price">$75.00</p>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">We provide an unmatched shopping experience from purchase to delivery.</p>
+        <div class="services-container">
+            <div class="service-box">
+                <span class="service-icon">🚚</span>
+                <h3>Free Shipping</h3>
+                <p>Enjoy free global express shipping on all orders valued over $100.</p>
+            </div>
+            <div class="service-box">
+                <span class="service-icon">🔄</span>
+                <h3>Easy Returns</h3>
+                <p>Not the perfect fit? Return or exchange items hassle-free within 30 days.</p>
+            </div>
+            <div class="service-box">
+                <span class="service-icon">🛠️</span>
+                <h3>Lifetime Guarantee</h3>
+                <p>Premium stitch repairs and button replacements are covered forever.</p>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <h2 class="section-title">About Us</h2>
+        <p class="section-subtitle">Our journey, values, and devotion to sustainable comfort.</p>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Founded with a focus on weather-proof fashion, Winter Co. mixes high-tech functional materials with sleek modern silhouettes.</p>
+                <p>We work exclusively with certified ethical factories and sustainable wool suppliers to ensure your winter clothes look stunning while minimizing environmental impact.</p>
+                <p>Every jacket, scarf, and sweater is thoroughly field-tested to withstand freezing conditions, promising warmth season after season.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&auto=format&fit=crop&q=80" alt="Group of friends enjoying winter fashion outside">
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Winter Co.</h3>
+                <p>Crafting comfort for extreme elements since day one.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#collection">Collection</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li>📧 support@winterco.com</li>
+                    <li>📞 +1 (555) 019-2834</li>
+                    <li>📍 456 Alpine Blvd, Aspen, CO</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Winter Co. Apparel. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
